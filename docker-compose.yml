@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+    container_name: django_vue
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"

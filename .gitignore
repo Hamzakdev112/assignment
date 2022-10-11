@@ -1,0 +1,5 @@
+media/*
+*.sublime-*
+__pycache__/
+*.pyc
+.env
