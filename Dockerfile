@@ -18,7 +18,6 @@ RUN mkdir -p /www/static_live
 # Application stuff
 RUN mkdir /app
 WORKDIR /app
-COPY requirements.txt ./
-RUN pip install -r requirements.txt
+COPY ./django_vue/requirements.txt /app/django_vue/requirements.txt
+RUN pip install -r /app/django_vue/requirements.txt
 EXPOSE 8000
-#CMD ["./.docker/assets/start_server.sh"]
