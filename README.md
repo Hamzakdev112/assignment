@@ -6,7 +6,7 @@ The django has been written, and there is one template for you to fill in to mak
 
 # Local Installation #
 Running the API is all done through launching their respective container using the [Docker](https://www.docker.com/) 
-configuration files in the application root, Dockerfile and ocker-compose.yml
+configuration files in the application root, Dockerfile and docker-compose.yml
 
 These instructions assume a unix based platform running a bash console from the project root directory.
 
