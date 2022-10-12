@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Django Vue Test</h1>
+<p>
+	Username: admin<BR />
+	Passwword: password<BR />
+	<a href="/admin">Django Admin</a>
+</p>
+<h2>REST Endpoints Below</h2>
+<ul>
+	<li>Create: <a href="{% url 'api_post_create' %}">{% url 'api_post_create' %}</a></li>
+	<li>List: <a href="{% url 'api_post_list' %}">{% url 'api_post_list' %}</a></li>
+	<li>Detail id=1: <a href="{% url 'api_post_detail' 1 %}">{% url 'api_post_detail' 1 %}</a>, you may not want/need to use this</li>
+	<li>Delete id=1: {% url 'api_post_delete' 1 %}</li>
+	<li>Create id=1: {% url 'api_post_update' 1 %}</li>
+</ul>
+
+<h2>Pure Django Pages</h2>
+<ul>
+	<li>List: <a href="{% url 'post_list' %}">{% url 'post_list' %}</a></li>
+	<li>Detail id=1: <a href="{% url 'post_detail' 1 %}">{% url 'post_detail' 1 %}</a></li>
+</ul>
+
+<h2>Django With Vue (You write this)</h2>
+<ul>
+	<li>CRUD: <a href="{% url 'vue_blog' %}">{% url 'vue_blog' %}</a> uses the template vue_blog.html which includes the file blog.vue which will contain the meat of this assignment</li>
+</ul>
+<p>
+	The idea is to include vue code in the tempalte 'blog/blog.vue' which is inserted into the html template 'blog/vue_blog.html'. You need to make a single page vue application that will list the posts, allow the user to create a new post, edit an existing post or delete a post. To show the post detail/body, make a modal popup display this information. The API endpoints are listed under the
+	REST Endpoints heading, and if 
+	you call them within a web browser, django rest api will present you with a nice page where you can try them out.
+</p>
+<p>
+	Edit the static/css/staff_test.css, or include stylesheets in base.html to make the page nice. You don't need to use django static files, you can just load them from the internet if you don't understand the django template static command.
+</p>
+{% endblock content %}
