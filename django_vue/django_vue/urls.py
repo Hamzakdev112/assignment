@@ -1,6 +1,6 @@
 from blog.views import (
     PostCreateAPIView, PostListAPIView, PostDeleteAPIView, PostUpdateAPIView,
-    PostListView, PostDetailView
+    PostListView, PostDetailView, vue_view
     )
 from django.contrib import admin
 from django.urls import path, include
@@ -17,4 +17,6 @@ urlpatterns = [
     # django
     path('django/list/', PostListView.as_view(), name='post_list'),
     path('django/detail/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
+    # Vue
+    path('vue-blog/', vue_view),
 ]

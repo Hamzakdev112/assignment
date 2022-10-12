@@ -1,9 +1,15 @@
 from .models import Post
 from .serializers import PostSerializer
+from django.shortcuts import render
 from django.utils import timezone
 from django.views.generic import ListView, DetailView
 from rest_framework import generics
 
+def vue_view(request):
+
+    context = {}
+    context['vue_element'] = 'vueblog'
+    return render(request, 'blog/vue_blog.html', context)
 
 class PostDetailView(DetailView):
 
