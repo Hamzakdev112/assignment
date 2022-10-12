@@ -30,9 +30,9 @@
 	The idea is to include vue code in the tempalate 'blog/blog.vue' which is inserted into the html template 'blog/vue_blog.html'. You need to make a single page vue application that will list the posts, allow the user to create a new post, edit an existing post or delete a post. To show the post detail/body, make a modal popup display this information. So the files you are concerned with are under blog/templates/blog/:
 	<ul>
 		<li>base.html is the base html file that contains the html header for css and js imports</li>
-		<li>vue_blog.html which extends base.html and contains the html</li>
-		<li>base.vue is the base template for vue. It defines</li>
-		<li>blog.vue which extends base.vue and contains your code</li>
+		<li>vue_blog.html which extends base.html and contains the html. I have put some test code here to show a vue variable defined in blog.vue</li>
+		<li>base.vue is the base template for vue. It defines the bracket operator as [[ var ]] for the vue template  vars. Django uses {{ var }} for template variables</li>
+		<li>blog.vue which extends base.vue and contains your code. I have written some test code here to define a vue variable</li>
 	</ul>
 
 	The API endpoints are listed under the REST Endpoints heading, and if 
