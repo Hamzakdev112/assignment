@@ -1,7 +1,30 @@
-from .models. import Post
+from .models import Post
 from .serializers import PostSerializer
 from django.utils import timezone
+from django.views.generic import ListView, DetailView
 from rest_framework import generics
+
+
+class PostDetailView(DetailView):
+
+    context_object_name = 'post'
+    template_name = 'blog/django_detail.html'
+    model = Post
+
+class PostListView(ListView):
+    
+    queryset = Post.objects.all()
+    context_object_name = 'post_list'
+    template_name = 'blog/django_list.html'
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)
+        qs = qs.filter(published__lte=timezone.now())
+        return qs
+
+    class Meta:
+        model = Post
+
 
 class PostCreateAPIView(generics.CreateAPIView):
 
@@ -16,7 +39,7 @@ class PostListAPIView(generics.ListAPIView):
     def get_queryset(self, *args, **kwargs):
         nowish = timezone.now()
         qs = super().get_queryset(*args, **kwargs)
-        qs = qs.filter(published__gte=nowish)
+        qs = qs.filter(published__lte=nowish)
         return qs
 
 
@@ -25,7 +48,7 @@ class PostDeleteAPIView(generics.DestroyAPIView):
     serializer_class = PostSerializer
 
     class Meta:
-        model = Reflection
+        model = Post
 
 
 class PostUpdateAPIView(generics.UpdateAPIView):

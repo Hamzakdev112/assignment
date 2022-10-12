@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Test Posts</h1>
+<P>
+<a href="/admin"><button class="btn">RETURN TO ADMIN</button></a>
+</P>
+
+<h1>Staff Test</h1>
+<h2>Published Blog Posts</h2>
+<ul>
+{% for post in post_list %}
+	<li><a href="{{ post.detail_url }}">{{ post.title }}</a></li>
+{% endfor %}
+
+{% endblock content %}

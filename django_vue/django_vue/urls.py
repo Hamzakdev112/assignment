@@ -1,14 +1,20 @@
-from blog.viewsets import PostViewSet
+from blog.views import (
+    PostCreateAPIView, PostListAPIView, PostDeleteAPIView, PostUpdateAPIView,
+    PostListView, PostDetailView
+    )
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register(r'post', PostViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/viewset/', include(router.urls)),
-    path('schema.yml', TemplateView.as_view(template_name="common/schema.yml", content_type='text/yaml')),
+    # rest api
+    path('schema.yml', TemplateView.as_view(template_name="blog/schema.yml", content_type='text/yaml')),
+    path('api/create/', PostCreateAPIView.as_view()),
+    path('api/list/', PostListAPIView.as_view()),
+    path('api/delete/<int:pk>/', PostDeleteAPIView.as_view()),
+    path('api/update/<int:pk>/', PostUpdateAPIView.as_view()),
+    # django
+    path('django/list/', PostListView.as_view(), name='post_list'),
+    path('django/detail/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
 ]
