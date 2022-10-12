@@ -2,6 +2,8 @@
 
 The django has been written, and there is one template for you to fill in to make a one page CRUD application by use of the Django APIs.
 
+Once you have cloned this project, fork it and push the solution to your own repo. Send me the link so I can clone it and test your solution
+
 
 
 # Local Installation #
@@ -12,7 +14,7 @@ These instructions assume a unix based platform running a bash console from the 
 
 #### Requirements ####
 
-Running the server requires the following to be installed on your computer:  
+Running the server requires the following to be installed on your computer, and I believe behave the same way on Linux/MacOS/Windows:  
 
 * ***Docker***  
 * ***docker-compose***  
