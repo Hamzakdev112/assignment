@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:3
 # OS stuff
 RUN apt-get update 
 RUN apt-get install dialog apt-utils -y -q
