@@ -4,6 +4,8 @@ The django has been written, and there is one template for you to fill in to mak
 
 Once you have cloned this project, fork it and push the solution to your own repo. Send me the link so I can clone it and test your solution
 
+**NOTE: DO NOT PUSH YOUR SOLUTION BACK TO THE ORIGINAL REPOSITORY. THE REPOSITORY IS PUBLIC, BUT NOT READ ONLY. YOU MUST MAKE A NEW REPOSITORY IN YOUR OWN ACCOUNT THAT I CAN PULL YOUR SOLUTION FROM**
+
 
 
 # Local Installation #
