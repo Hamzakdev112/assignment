@@ -32,6 +32,12 @@ class PostListView(ListView):
         model = Post
 
 
+class PostDetailAPIView(generics.RetrieveAPIView):
+    
+    serializer_class = PostSerializer
+    queryset = Post.objects.all()
+
+
 class PostCreateAPIView(generics.CreateAPIView):
 
     serializer_class = PostSerializer
