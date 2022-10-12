@@ -3,7 +3,7 @@ info:
   title: ''
   version: ''
 paths:
-  /list:
+  /api/list/:
     get:
       operationId: listPosts
       description: ''
@@ -18,8 +18,8 @@ paths:
                   $ref: '#/components/schemas/Post'
           description: ''
       tags:
-      - list
-  /create:
+      - api
+  /api/create/:
     post:
       operationId: createPost
       description: ''
@@ -43,8 +43,8 @@ paths:
                 $ref: '#/components/schemas/Post'
           description: ''
       tags:
-      - create
-  /update/{id}/:
+      - api
+  /api/update/{id}/:
     put:
       operationId: updatePost
       description: ''
@@ -74,7 +74,7 @@ paths:
                 $ref: '#/components/schemas/Post'
           description: ''
       tags:
-      - update
+      - api
     patch:
       operationId: partialUpdatePost
       description: ''
@@ -104,8 +104,8 @@ paths:
                 $ref: '#/components/schemas/Post'
           description: ''
       tags:
-      - update
-  /delete/{id}/:
+      - api
+  /api/delete/{id}/:
     delete:
       operationId: destroyPost
       description: ''
@@ -120,7 +120,7 @@ paths:
         '204':
           description: ''
       tags:
-      - delete
+      - api
 components:
   schemas:
     Post:
