@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>Vue Code In File Below</h1>
 <div id="{{ vue_element }}">
-	<h2>[[ vueTestData ]]</h2>
+	<app></app>
 </div>
 <script>
+ 	axios.defaults.xsrfCookieName = 'csrftoken'; // Set the CSRF cookie name
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken'; // Set the CSRF header name
 	{% include 'blog/blog.vue' %}
 </script>
 {% endblock content %}

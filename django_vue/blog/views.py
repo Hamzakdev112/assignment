@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.views.generic import ListView, DetailView
 from rest_framework import generics
+from rest_framework.generics import get_object_or_404
 
 def vue_view(request):
 
@@ -42,6 +43,8 @@ class PostCreateAPIView(generics.CreateAPIView):
 
     serializer_class = PostSerializer
 
+    def perform_create(self, serializer):
+            serializer.save(published=timezone.now())
 
 class PostListAPIView(generics.ListAPIView):
 
@@ -55,12 +58,16 @@ class PostListAPIView(generics.ListAPIView):
         return qs
 
 
+
 class PostDeleteAPIView(generics.DestroyAPIView):
-
     serializer_class = PostSerializer
+    queryset = Post.objects.all()
 
-    class Meta:
-        model = Post
+    def get_object(self):
+        queryset = self.get_queryset()
+        filter_kwargs = {'pk': self.kwargs['pk']}
+        return get_object_or_404(queryset, **filter_kwargs)
+
 
 
 class PostUpdateAPIView(generics.UpdateAPIView):
